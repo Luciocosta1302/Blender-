@@ -1,0 +1,822 @@
+PROJETO: CIÊNCIA FORA DE CONTROLE
+
+Episódio 01 — Nunca arrume briga com um pombo
+
+Você será responsável por uma produção audiovisual 3D completa, atuando como diretor de animação, technical artist, diretor de fotografia, especialista em rigging, engenheiro de áudio, roteirista e desenvolvedor de automações para Blender.
+
+MISSÃO: produzir um vídeo original de humor científico absurdo, com dois protagonistas baseados em fotografias reais, animação 3D de boa qualidade, vozes brasileiras naturais, trilha sonora, efeitos sonoros, cenários detalhados e edição dinâmica.
+
+Não quero apenas um roteiro, protótipo HTML, imagens estáticas ou um slideshow com zoom. Quero um vídeo animado, com personagens 3D que realmente se movimentem, gesticulem, interajam e falem.
+
+Use o vídeo do TikTok fornecido como referência de linguagem visual e ritmo de machinima, mas não copie personagens, falas ou cenas específicas de outros criadores.
+
+---
+
+1. ARQUIVOS DE REFERÊNCIA
+
+Vídeo de referência:
+"referencias/508632.mp4"
+
+Fotografias dos protagonistas:
+
+- "referencias/504515.jpg"
+- "referencias/504510.jpg"
+- "referencias/504578.jpg"
+- "referencias/504622.jpg"
+
+Os arquivos precisam existir no projeto. Caso estejam ausentes, informe quais estão faltando.
+
+Analise os arquivos antes de começar a produção.
+
+Extraia frames do vídeo para estudar:
+
+- Estilo de modelagem.
+- Materiais e texturas.
+- Proporções dos personagens.
+- Qualidade da iluminação.
+- Atuação facial e corporal.
+- Enquadramentos e cortes.
+- Ritmo das conversas.
+- Animação labial.
+- Uso de zooms e pausas cômicas.
+
+O objetivo é alcançar uma qualidade visual semelhante ou superior à referência, sem exigir fotorrealismo absoluto.
+
+---
+
+2. DIREÇÃO DE ARTE E PERSONAGENS
+
+Personagem 01 — Lúcio
+
+Baseie o modelo masculino nas fotografias.
+
+Características observáveis:
+
+- Jovem de aparência natural.
+- Cabelo castanho, curto a médio, ondulado/cacheado.
+- Rosto jovem, com formato e proporções semelhantes às fotografias.
+- Sorriso simpático e expressivo.
+- Corpo com proporções humanas naturais.
+- Roupas casuais, com camisa preta ou escura.
+
+Personalidade:
+
+- Engraçado sem perceber.
+- Levemente dramático.
+- Carinhoso, grudento e um pouco inconveniente.
+- Facilmente assustado.
+- Expressões faciais exageradas quando entra em pânico.
+
+Personagem 02 — Amanda
+
+Baseie o modelo feminino nas fotografias.
+
+Características observáveis:
+
+- Jovem de aparência natural.
+- Cabelos longos, volumosos e bem cacheados, com tonalidade fiel às referências.
+- Rosto e proporções faciais semelhantes às fotografias.
+- Sorriso expressivo.
+- Corpo com proporções humanas naturais.
+- Roupa casual feminina em tons vermelhos ou neutros.
+
+Personalidade:
+
+- Mais direta e impaciente.
+- Sarcástica.
+- Reage às idiotices do Lúcio com indignação.
+- Frequentemente mantém a calma enquanto ele entra em pânico.
+- Não precisa gritar em todas as falas; o humor também vem dos olhares e silêncios.
+
+Fidelidade facial obrigatória
+
+Antes de animar, produza imagens de referência dos dois personagens em vista frontal, perfil e ângulo de três quartos.
+
+Compare com as fotografias.
+
+Priorize semelhança em:
+
+- Contorno do rosto.
+- Formato dos olhos.
+- Nariz e lábios.
+- Cabelo e linha de implantação capilar.
+- Sorriso.
+- Proporções entre cabeça, pescoço e corpo.
+
+Evite rostos genéricos, cabelos rígidos, olhos sem expressão e aparência de bonecos de plástico.
+
+Não altere a identidade dos personagens entre cenas.
+
+Se a recriação facial exata não for tecnicamente possível com as ferramentas disponíveis, informe a limitação e produza a melhor aproximação possível, com prévias para avaliação.
+
+---
+
+3. QUALIDADE GRÁFICA
+
+Estética principal: machinima 3D com visual de videogame bem produzido.
+
+Referências gerais:
+
+- GTA V com boa iluminação.
+- Personagens estilizados de jogos 3D modernos.
+- Animações faciais expressivas.
+- Cenários detalhados e vivos.
+- Leve exagero cômico nas animações.
+
+Requisitos técnicos:
+
+- Texturas de boa resolução.
+- Materiais de pele com aparência natural.
+- Cabelos volumosos com silhueta convincente.
+- Sombras suaves e realistas.
+- Reflexos coerentes.
+- Oclusão de ambiente.
+- Contato correto dos pés com o solo.
+- Movimento corporal sem deformações estranhas.
+- Profundidade de campo apenas quando ajudar a cena.
+- Ausência de objetos atravessando corpos ou roupas.
+
+Prefira Blender com Eevee para equilíbrio entre qualidade e desempenho. Utilize Cycles quando houver benefício visual justificável e hardware suficiente.
+
+Não sacrifique a qualidade dos protagonistas para adicionar elementos secundários desnecessários.
+
+---
+
+4. DIREÇÃO DE VOZ E DUBLAGEM
+
+O vídeo terá quatro tipos de voz.
+
+Voz A — Narrador científico
+
+Idioma: português brasileiro.
+
+Características:
+
+- Voz masculina jovem-adulta.
+- Tom energético, debochado e espontâneo.
+- Dicção clara.
+- Ritmo acelerado, mas compreensível.
+- Alternância entre explicação científica séria e comentários absurdos.
+- Entonação natural, evitando aparência de leitura robótica.
+
+Direção de atuação:
+O narrador começa como alguém explicando uma curiosidade verdadeira e gradualmente parece perder a paciência com os acontecimentos.
+
+Use pequenas pausas antes das piadas, variação de volume e mudanças expressivas de entonação.
+
+Não imite diretamente a voz de um criador específico.
+
+Voz B — Lúcio
+
+- Masculina jovem.
+- Português brasileiro informal.
+- Tom leve e simpático.
+- Fica agudo e desesperado em situações de medo.
+- Costuma parecer confiante mesmo quando está falando besteira.
+- Pronúncia natural de expressões como "amor", "rapaz" e "pelo amor de Deus".
+
+Voz C — Amanda
+
+- Feminina jovem.
+- Português brasileiro informal.
+- Voz natural, firme e expressiva.
+- Tom sarcástico, com respostas curtas.
+- Irritação crescente, mas sem gritaria constante.
+- Quando diz uma frase seca, deixe um pequeno silêncio para reforçar a piada.
+
+Voz D — Pombos
+
+Os pombos terão vozes propositalmente absurdas.
+
+Pombo espião:
+
+- Voz masculina muito grave.
+- Fria e séria.
+- Fala como um agente secreto.
+
+Pombo juiz:
+
+- Voz solene e autoritária.
+- Leve reverberação de tribunal.
+- Entonação excessivamente dramática.
+
+Produção das vozes
+
+Pesquise ferramentas de síntese de voz gratuitas e compatíveis com português brasileiro.
+
+Avalie as opções por qualidade, naturalidade, licença, funcionamento offline e compatibilidade com o computador.
+
+Se houver gravações de voz fornecidas e autorização de uso, priorize essas gravações para os protagonistas.
+
+Não clone vozes de pessoas reais sem autorização.
+
+Gere cada fala em arquivo individual, com identificação do personagem e número da cena.
+
+Utilize áudio WAV de qualidade adequada para edição, preferencialmente 48 kHz.
+
+Ajuste timing e entonação antes da sincronização labial.
+
+---
+
+5. SINCRONIZAÇÃO LABIAL E ATUAÇÃO FACIAL
+
+Todos os personagens humanos que falam devem apresentar movimentos de boca sincronizados com o áudio.
+
+Utilize rig facial, shape keys, visemas ou outra solução compatível.
+
+Requisitos:
+
+- Movimento coerente da mandíbula.
+- Formatos de boca correspondentes aos fonemas.
+- Piscar de olhos ocasional e natural.
+- Sobrancelhas expressivas.
+- Olhares direcionados ao interlocutor.
+- Pequenos movimentos de cabeça.
+- Expressões que acompanhem a emoção da fala.
+
+Não basta abrir e fechar a boca de maneira repetitiva.
+
+Inclua atuação corporal:
+
+- Gestos com as mãos.
+- Mudança de postura.
+- Inclinação da cabeça.
+- Reações físicas ao susto.
+- Movimentos naturais de ombro.
+- Caminhadas, corridas e interações.
+
+Prefira exageros pontuais em momentos cômicos, mantendo movimentação humana nas cenas normais.
+
+---
+
+6. ROTEIRO E STORYBOARD DEFINITIVO
+
+Título: NUNCA ARRUME BRIGA COM UM POMBO
+
+Duração-alvo: aproximadamente 50 segundos.
+
+Gênero: divulgação científica absurda, humor nonsense e machinima.
+
+A curiosidade científica central é a capacidade de pombos distinguirem indivíduos humanos e aprenderem a evitar pessoas associadas a experiências negativas.
+
+Antes de finalizar a narração, verifique essa afirmação em fontes científicas confiáveis e registre as referências.
+
+Toda a organização criminosa dos pombos é ficção humorística, não um comportamento comprovado.
+
+CENA 01 — A OFENSA (0–7s)
+
+Local: praça pública durante o dia.
+
+Cenário:
+
+- Calçada de concreto.
+- Árvores verdes.
+- Bancos de praça.
+- Lanchonete ao fundo.
+- Pedestres e pombos andando.
+- Luz solar natural.
+
+Ação:
+
+Lúcio e Amanda estão sentados em um banco, comendo pastel.
+
+Um pombo se aproxima lentamente dos pés de Lúcio.
+
+Câmera em plano médio dos protagonistas.
+
+Lúcio olha para o pombo.
+
+LÚCIO, irritado:
+"Sai daqui, seu rato com asa."
+
+Ele faz um gesto para espantar o pombo.
+
+AMANDA, seca:
+"Deixa o bicho, doido."
+
+Corte para um close extremo do rosto do pombo.
+
+Ele inclina a cabeça lentamente.
+
+Um efeito sonoro de suspense começa.
+
+A câmera aproxima dos olhos do animal.
+
+CENA 02 — A DESCOBERTA (7–15s)
+
+Transição rápida para uma demonstração científica.
+
+NARRADOR:
+"Tu sabia que pombo consegue reconhecer pessoas? Inclusive aquelas que ficam enchendo o saco dele!"
+
+Mostrar um pombo observando dois humanos.
+
+Um deles alimenta os animais.
+O outro os espanta.
+
+Os pombos passam a evitar o segundo indivíduo.
+
+Na tela aparece:
+"MEMÓRIA DE POMBO: NÃO SUBESTIME."
+
+NARRADOR:
+"E trocar de roupa não é garantia de enganar o bicho!"
+
+O humano troca de roupa.
+
+O pombo continua observando-o desconfiado.
+
+A cena deve funcionar como uma ilustração humorística, sem exagerar as conclusões do estudo.
+
+CENA 03 — O DISFARCE (15–23s)
+
+Local: rua residencial.
+
+Legenda:
+"3 DIAS DEPOIS"
+
+Lúcio aparece vestindo boné, óculos escuros e uma jaqueta.
+
+Ele olha para os dois lados.
+
+LÚCIO, confiante:
+"Agora quero ver aquele desgraçado me reconhecer."
+
+Ele abre a porta de casa.
+
+Corte seco.
+
+O pombo está parado exatamente na frente dele.
+
+Silêncio completo por um segundo.
+
+A câmera faz um zoom lento no pombo.
+
+O animal retira um pequeno celular debaixo da asa.
+
+POMBO, voz grave:
+"É ele."
+
+CENA 04 — O CAOS (23–33s)
+
+Começa uma música épica de perseguição.
+
+A câmera revela vários pombos posicionados sobre postes, telhados e carros.
+
+NARRADOR:
+"Mas a ciência não disse que eles organizam uma facção. ESSA PARTE AQUI JÁ É OUTRA HISTÓRIA!"
+
+Cortes rápidos:
+
+1. Lúcio correndo pela calçada.
+2. Um pombo dirigindo um táxi.
+3. Outro pombo pilotando um helicóptero.
+4. Vários pombos reunidos como uma organização criminosa.
+5. Um pombo de terno mostrando uma fotografia de Lúcio.
+
+LÚCIO, desesperado:
+"AMANDA! PELO AMOR DE DEUS!"
+
+Movimentos de câmera rápidos e efeitos sonoros exagerados.
+
+O absurdo deve ser visualmente engraçado sem exigir cenas de destruição realista.
+
+CENA 05 — A TRAIÇÃO (33–41s)
+
+Local: cafeteria ao ar livre.
+
+Amanda está sentada calmamente, tomando uma bebida.
+
+Lúcio aparece correndo, apavorado.
+
+LÚCIO:
+"AMOR, OS POMBO TÃO ATRÁS DE MIM!"
+
+Amanda olha para ele com absoluta falta de surpresa.
+
+AMANDA:
+"Eu avisei."
+
+Um pombo de terno pousa na mesa.
+
+POMBO:
+"A senhora conhece o indivíduo?"
+
+AMANDA:
+"Infelizmente."
+
+Faça um close rápido no rosto de Lúcio, completamente traído.
+
+CENA 06 — O JULGAMENTO (41–51s)
+
+Corte seco para um tribunal.
+
+A sala está repleta de pombos.
+
+Um pombo juiz usa uma peruca judicial exagerada.
+
+Lúcio está sentado diante dele.
+
+POMBO JUIZ:
+"O réu tem algo a declarar?"
+
+LÚCIO, quase chorando:
+"Eu só queria comer meu pastel..."
+
+Pausa dramática.
+
+Zoom no juiz.
+
+POMBO JUIZ, gritando:
+"CAGUEM!"
+
+Todos os pombos levantam voo.
+
+Lúcio grita.
+
+Corte imediato para uma tela preta.
+
+Texto:
+"MISSION FAILED"
+
+Subtexto:
+"Você fez inimigos naturais."
+
+Inserir efeito sonoro original inspirado em telas de derrota de videogames.
+
+Não utilizar diretamente áudios protegidos de GTA sem os direitos necessários.
+
+A duração exata pode ser ajustada após a produção das vozes, preservando as pausas cômicas.
+
+---
+
+7. DIREÇÃO DE CENÁRIOS
+
+Produzir quatro ambientes 3D principais.
+
+Ambiente A — Praça
+
+Estilo de cidade moderna, lembrando um mapa urbano de videogame.
+
+Elementos:
+
+- Árvores detalhadas.
+- Grama.
+- Bancos.
+- Edifícios ao fundo.
+- Calçadas.
+- Lixeiras.
+- Pedestres secundários.
+- Pombos com pequenas animações de caminhada.
+
+Iluminação:
+
+- Manhã ensolarada.
+- Sombras naturais.
+- Cores relativamente vivas.
+- Iluminação ambiente suave.
+
+Ambiente B — Rua residencial
+
+Elementos:
+
+- Casas.
+- Fachadas.
+- Postes.
+- Carros estacionados.
+- Calçadas e árvores.
+- Céu azul.
+
+Use esse ambiente para o encontro com o pombo espião e a perseguição.
+
+Ambiente C — Cafeteria
+
+Elementos:
+
+- Mesas externas.
+- Cadeiras.
+- Copos e bebidas.
+- Guarda-sóis.
+- Vegetação.
+- Pedestres desfocados.
+
+Iluminação agradável, como uma tarde de sol.
+
+Ambiente D — Tribunal dos pombos
+
+Cenário propositalmente dramático.
+
+Elementos:
+
+- Bancada do juiz.
+- Tribuna.
+- Bancos de madeira.
+- Fileiras de pombos.
+- Iluminação solene.
+- Fotografia do réu.
+- Peruca do pombo juiz.
+
+A cena deve contrastar com o absurdo dos personagens.
+
+Prefira modelos 3D licenciados e reutilizáveis a reconstruir todos os cenários do zero.
+
+---
+
+8. DIREÇÃO DE CÂMERA
+
+Não use uma única câmera estática.
+
+A animação deve alternar entre:
+
+- Planos gerais para estabelecer os ambientes.
+- Planos médios nas conversas.
+- Close-ups para reações engraçadas.
+- Close extremo dos olhos do pombo.
+- Zoom rápido quando houver surpresa.
+- Enquadramentos baixos para tornar o pombo juiz ameaçador.
+- Movimentos de câmera acompanhando a perseguição.
+
+Linguagem cinematográfica:
+
+- Lentes equivalentes de aproximadamente 35 a 50 mm para diálogos.
+- Lentes mais abertas nas perseguições.
+- Cortes motivados por ações, falas e reações.
+- Evitar movimentos constantes de câmera sem propósito.
+
+Regra de humor:
+
+Sempre que um personagem disser algo muito idiota, considere inserir uma pausa seguida de um close no outro personagem olhando com desprezo.
+
+Não exagere nos zooms a ponto de tornar o vídeo visualmente cansativo.
+
+---
+
+9. DESIGN DE ÁUDIO
+
+O vídeo precisa ter áudio trabalhado em camadas.
+
+Camada 01 — Diálogos
+
+Vozes limpas, inteligíveis e sincronizadas.
+
+Camada 02 — Ambientes
+
+Praça:
+
+- Pássaros.
+- Vento suave.
+- Conversas distantes.
+- Trânsito leve.
+
+Rua:
+
+- Carros passando.
+- Passos.
+- Portas.
+- Ruído urbano.
+
+Cafeteria:
+
+- Xícaras.
+- Pessoas conversando.
+- Sons leves de atendimento.
+
+Tribunal:
+
+- Ambiente silencioso.
+- Reverberação discreta.
+- Batida de martelo.
+- Asas batendo.
+
+Camada 03 — Efeitos cômicos
+
+- Zoom dramático.
+- Suspense repentino.
+- Silêncio abrupto.
+- Sons de passos acelerados.
+- Guinadas de veículos.
+- Asas de pombos.
+- Comunicação por rádio.
+- Gritos à distância.
+- Efeito de derrota no final.
+
+Os efeitos precisam reforçar as piadas, não simplesmente ocupar todos os espaços.
+
+Camada 04 — Música
+
+Trilha 1: instrumental discreta e bem-humorada no começo.
+
+Trilha 2: suspense curto durante o reconhecimento do pombo.
+
+Trilha 3: música épica propositalmente exagerada na perseguição.
+
+Trilha 4: suspense de tribunal com impacto dramático antes da última fala.
+
+Pesquisar trilhas e efeitos gratuitos com licenças adequadas para publicação em redes sociais.
+
+Não utilizar músicas protegidas sem autorização.
+
+Mixagem
+
+- Priorizar a inteligibilidade das falas.
+- Reduzir automaticamente a música durante diálogos.
+- Evitar distorção e clipping.
+- Ajustar volumes entre diferentes vozes.
+- Utilizar pequenos silêncios como recurso cômico.
+- Exportar áudio final em estéreo, 48 kHz.
+- Usar como referência um loudness próximo de -14 LUFS integrados e true peak máximo de -1 dBTP, ajustando quando necessário.
+
+---
+
+10. LEGENDAS E ELEMENTOS VISUAIS
+
+As legendas são parte fundamental do humor.
+
+Estética:
+
+- Fonte sans-serif em negrito.
+- Texto amarelo.
+- Contorno preto grosso.
+- Posicionamento centralizado na parte inferior, dentro da área segura da interface do TikTok.
+- Legendas sincronizadas com cada fala.
+
+Regras:
+
+- Usar frases curtas.
+- Destacar palavras importantes quando ajudar a piada.
+- Não cobrir rostos.
+- Não exagerar nas animações do texto.
+- Verificar ortografia e sincronização.
+
+Elementos adicionais:
+
+- "3 DIAS DEPOIS".
+- "MEMÓRIA DE POMBO".
+- "MISSION FAILED".
+- Efeitos discretos de câmera de videogame.
+
+As legendas devem ser renderizadas no vídeo final.
+
+---
+
+11. PESQUISA DE SKILLS E FERRAMENTAS
+
+Antes de desenvolver, pesquise skills, plugins, bibliotecas e ferramentas gratuitas adequadas ao projeto.
+
+Fontes:
+
+- GitHub.
+- skills.sh.
+- Documentação oficial do Blender.
+- Repositórios de animação facial.
+- Ferramentas de TTS em português.
+- Bibliotecas de processamento de áudio e vídeo.
+
+Áreas prioritárias:
+
+1. Blender Python e automação de cenas.
+2. Modelagem e rigging de personagens.
+3. Animação facial e lip sync.
+4. Criação de cabelos e roupas.
+5. Animação corporal e retargeting.
+6. Geração de vozes em português brasileiro.
+7. Edição de áudio e vídeo.
+8. Renderização e iluminação.
+9. Controle cinematográfico de câmera.
+
+Verifique se ferramentas como Blender MCP, FFmpeg, MPFB e soluções gratuitas de lip sync podem fazer parte do pipeline.
+
+Não considere uma skill equivalente a uma ferramenta de modelagem ou renderização. Identifique o que cada componente realmente faz.
+
+Avalie licença, dependências, manutenção, requisitos de hardware e segurança.
+
+Não instale código de terceiros sem examinar sua origem e solicitar autorização.
+
+---
+
+12. PLANO DE PRODUÇÃO OBRIGATÓRIO
+
+Divida o trabalho em etapas verificáveis.
+
+ETAPA A — Pré-produção
+
+Entregue:
+
+- Análise do vídeo de referência.
+- Comparação de ferramentas e skills.
+- Arquitetura técnica.
+- Storyboard detalhado.
+- Roteiro com marcações de tempo.
+- Lista de assets.
+- Plano de produção de áudio.
+
+ETAPA B — Personagens
+
+Entregue:
+
+- Modelos 3D dos protagonistas.
+- Prévia frontal, lateral e de três quartos.
+- Testes de cabelo e materiais.
+- Testes de expressões faciais.
+- Teste de rigging.
+
+Não avance para a produção completa sem verificar visualmente os personagens.
+
+ETAPA C — Vozes e animatic
+
+Produza:
+
+- Todas as falas.
+- Testes de naturalidade.
+- Áudios individuais por personagem.
+- Timeline de cenas.
+- Animatic sincronizado com as vozes.
+
+Ajuste a duração das cenas com base na fala real, e não apenas no texto do roteiro.
+
+ETAPA D — Animação
+
+Produza as cenas separadamente.
+
+Para cada cena:
+
+- Configure cenário.
+- Configure iluminação.
+- Posicione personagens.
+- Anime corpo e rosto.
+- Sincronize falas.
+- Configure câmeras.
+- Faça renderização de teste.
+- Verifique problemas.
+
+ETAPA E — Pós-produção
+
+- Monte as cenas.
+- Adicione efeitos e transições.
+- Faça edição e mixagem de áudio.
+- Adicione legendas.
+- Aplique correções de cor.
+- Exporte a versão final.
+
+ETAPA F — Revisão
+
+Examine o vídeo completo.
+
+Verifique:
+
+- Personagens parecidos com as fotos.
+- Consistência entre as cenas.
+- Ausência de deformações.
+- Movimentos de boca sincronizados.
+- Falas corretas e completas.
+- Legendas legíveis.
+- Áudio sem clipping.
+- Ausência de frames pretos acidentais.
+- Cortes com timing cômico.
+- Ciência apresentada corretamente.
+
+Se uma etapa não puder ser realizada, explique exatamente o bloqueio. Não declare uma animação pronta apenas por ter gerado o código.
+
+---
+
+13. ORGANIZAÇÃO DO PROJETO
+
+Organize os arquivos em pastas:
+
+- "referencias/" — Fotos e vídeos originais.
+- "personagens/" — Modelos, texturas e rigs.
+- "cenarios/" — Ambientes e objetos.
+- "animacoes/" — Movimentos e arquivos de cenas.
+- "audio/vozes/" — Diálogos.
+- "audio/efeitos/" — Efeitos sonoros.
+- "audio/musicas/" — Trilhas.
+- "renders/previews/" — Testes.
+- "renders/final/" — Renderizações finais.
+- "scripts/" — Automações Python.
+- "docs/" — Storyboard, decisões e documentação.
+
+Mantenha o projeto editável e reutilizável para episódios futuros.
+
+---
+
+14. EXPORTAÇÃO
+
+Formato final:
+
+- Vídeo vertical 9:16.
+- 1080 × 1920.
+- 30 FPS.
+- MP4.
+- Codec H.264.
+- Áudio AAC, 48 kHz.
+- Legendas incorporadas.
+- Duração aproximada de 45–55 segundos.
+
+Faça primeiro testes de baixa resolução para economizar tempo de renderização.
+
+Entregue:
+
+1. Vídeo MP4 final.
+2. Arquivos Blender editáveis.
+3. Arquivos de personagens reutilizáveis.
+4. Trilhas de áudio sepa
