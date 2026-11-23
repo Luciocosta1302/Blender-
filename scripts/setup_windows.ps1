@@ -1,20 +1,17 @@
-# Setup do projeto Ciência Fora de Controle no Windows.
+# Setup for Ciencia Fora de Controle project on Windows.
 #
-# Instala as 3 skills em %USERPROFILE%\.claude\skills\, roda o installer
-# oficial do EL4CTEO (symlinks das 28 sub-skills), opcionalmente prepara
-# Blender MCP. Reversível.
+# Installs 3 skills into %USERPROFILE%\.claude\skills\, runs EL4CTEO
+# official installer (symlinks for 28 sub-skills), optionally prepares
+# Blender MCP. Reversible.
 #
-# Uso:
-#   # Primeiro, abrir PowerShell como ADMIN uma vez para permitir symlinks:
-#   #   Start-Process powershell -Verb RunAs
-#   # Depois:
+# Usage:
 #   cd $HOME\Documents\CienciaForaDeControle
 #   powershell -ExecutionPolicy Bypass -File .\scripts\setup_windows.ps1
 #
-# Opções:
-#   -SkipMcp         Pula instalação do uv/blender-mcp
+# Options:
+#   -SkipMcp         Skip uv/blender-mcp install
 #   -Reinstall       Remove ~/.claude/skills/{blender-skills,3d-animator-skill,
-#                    claude-animation-skill} antes de clonar
+#                    claude-animation-skill} before cloning
 
 param(
     [switch]$SkipMcp,
@@ -28,95 +25,97 @@ function Ok($msg)   { Write-Host "[ ok ] $msg" -ForegroundColor Green }
 function Warn($msg) { Write-Host "[warn] $msg" -ForegroundColor Yellow }
 function Die($msg)  { Write-Host "[fail] $msg" -ForegroundColor Red; exit 1 }
 
-# --- 1. Pré-requisitos ---
-Info "verificando pré-requisitos"
-foreach ($cmd in @("git", "claude")) {
-    if (-not (Get-Command $cmd -ErrorAction SilentlyContinue)) {
-        if ($cmd -eq "claude") {
-            Warn "claude CLI não encontrado. Instale com: npm install -g @anthropic-ai/claude-code"
-        } else {
-            Die "$cmd não encontrado. Instale antes de continuar."
-        }
-    }
+# --- 1. Prereqs ---
+Info "checking prerequisites"
+if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
+    Die "git not found. Install it first."
 }
-Ok "git disponível"
+Ok "git available"
+if (-not (Get-Command claude -ErrorAction SilentlyContinue)) {
+    Warn "claude CLI not found. Install later with: npm install -g @anthropic-ai/claude-code"
+} else {
+    Ok "claude CLI available"
+}
 
-# --- 2. Diretório das skills ---
+# --- 2. Skills dir ---
 $skillsDir = Join-Path $HOME ".claude\skills"
 if (-not (Test-Path $skillsDir)) {
     New-Item -ItemType Directory -Path $skillsDir -Force | Out-Null
-    Ok "criado $skillsDir"
+    Ok "created $skillsDir"
 }
 
-# --- 3. Clonar as 3 skills ---
+# --- 3. Clone the 3 skills ---
 $repos = @(
-    @{ url = "https://github.com/EL4CTEO/blender-skills.git";              dir = "blender-skills" },
-    @{ url = "https://github.com/studioigor/3d-animator-skill.git";        dir = "3d-animator-skill" },
+    @{ url = "https://github.com/EL4CTEO/blender-skills.git";                     dir = "blender-skills" },
+    @{ url = "https://github.com/studioigor/3d-animator-skill.git";               dir = "3d-animator-skill" },
     @{ url = "https://github.com/DisturbedMediaGroup/claude-animation-skill.git"; dir = "claude-animation-skill" }
 )
 
 foreach ($r in $repos) {
     $target = Join-Path $skillsDir $r.dir
     if ($Reinstall -and (Test-Path $target)) {
-        Info "removendo (reinstall) $target"
+        Info "removing (reinstall) $target"
         Remove-Item -Recurse -Force $target
     }
     if (Test-Path $target) {
-        Info "$($r.dir) já presente, atualizando"
+        Info "$($r.dir) already present, updating"
         git -C $target pull --ff-only 2>&1 | Out-Null
     } else {
-        Info "clonando $($r.url)"
+        Info "cloning $($r.url)"
         git clone --depth 1 $r.url $target
     }
-    Ok "$($r.dir) pronto"
+    Ok "$($r.dir) ready"
 }
 
-# --- 4. Rodar installer oficial do EL4CTEO (cria symlinks das 28 sub-skills) ---
+# --- 4. Run EL4CTEO official installer ---
 $installer = Join-Path $skillsDir "blender-skills\install\install.ps1"
 if (Test-Path $installer) {
-    Info "rodando installer oficial do EL4CTEO (symlinks das 28 skills)"
+    Info "running EL4CTEO installer (symlinks for 28 sub-skills)"
+    $ok = $false
     try {
         & $installer --agent claude --scope user
-        Ok "28 sub-skills blender-* linkadas em $skillsDir"
+        $ok = $true
     } catch {
-        Warn "install.ps1 falhou — possivelmente precisa de admin para criar symlinks."
-        Warn "alternativa 1: reabrir PowerShell como administrador e rodar novamente"
-        Warn "alternativa 2: executar '& `"$installer`" --agent claude --scope user --copy' (copia em vez de linkar)"
+        Warn "install.ps1 failed. Likely needs admin to create symlinks on Windows."
+        Warn "Options:"
+        Warn "  A) Reopen PowerShell as Administrator and rerun this script"
+        Warn "  B) Enable Developer Mode (Settings - Privacy and security - For developers)"
+        Warn "  C) Copy instead of symlink: & '$installer' --agent claude --scope user --copy"
     }
+    if ($ok) { Ok "28 blender-* sub-skills linked under $skillsDir" }
 } else {
-    Warn "installer do EL4CTEO não encontrado em $installer"
+    Warn "EL4CTEO installer not found at $installer"
 }
 
-# --- 5. Blender MCP (opcional) ---
+# --- 5. Blender MCP (optional) ---
 if (-not $SkipMcp) {
-    Info "verificando uv (gerenciador Python usado pelo blender-mcp)"
+    Info "checking uv (python package runner used by blender-mcp)"
     if (-not (Get-Command uvx -ErrorAction SilentlyContinue)) {
-        Info "instalando uv"
+        Info "installing uv"
         try {
             Invoke-RestMethod https://astral.sh/uv/install.ps1 | Invoke-Expression
-            Ok "uv instalado"
+            Ok "uv installed"
         } catch {
-            Warn "falhou instalar uv automaticamente. Instale manualmente: https://docs.astral.sh/uv/"
+            Warn "auto-install of uv failed. Install manually from https://docs.astral.sh/uv/"
         }
     } else {
-        Ok "uv já disponível"
+        Ok "uv already available"
     }
 
-    Info "próximos passos manuais do Blender MCP:"
-    Write-Host "    1. Em um PowerShell novo:  uvx blender-mcp" -ForegroundColor White
-    Write-Host "       (deixe esse terminal rodando enquanto usar o Claude)" -ForegroundColor White
-    Write-Host "    2. Em outro PowerShell dentro deste projeto:" -ForegroundColor White
-    Write-Host "       claude mcp add blender-mcp -- uvx blender-mcp" -ForegroundColor White
-    Write-Host "    3. No Blender 5.3: Edit > Preferences > Add-ons > procure 'Blender MCP' > enable" -ForegroundColor White
-    Write-Host "       (se não existir, baixe o add-on do mesmo repo blender-mcp)" -ForegroundColor White
+    Info "Blender MCP manual steps:"
+    Write-Host "    1. In a new PowerShell: uvx blender-mcp (leave it running)"
+    Write-Host "    2. In another PowerShell inside the project:"
+    Write-Host "       claude mcp add blender-mcp -- uvx blender-mcp"
+    Write-Host "    3. In Blender 5.3: Edit then Preferences then Add-ons, find 'Blender MCP', enable it."
+    Write-Host "       If not present, get the add-on from the same blender-mcp project page."
 }
 
-# --- 6. Sumário ---
-Info "=== resumo ==="
+# --- 6. Summary ---
+Info "=== summary ==="
 Get-ChildItem $skillsDir -Directory | Select-Object Name | Format-Table
-Info "para iniciar:"
-Write-Host "    cd $HOME\Documents\CienciaForaDeControle" -ForegroundColor White
-Write-Host "    claude" -ForegroundColor White
+Info "to start a local Claude Code session:"
+Write-Host "    cd $HOME\Documents\CienciaForaDeControle"
+Write-Host "    claude"
 Write-Host ""
-Info "primeira pergunta para a sessão local:"
-Write-Host "    'Leia docs/DIRECAO_ARTE.md e STATUS.md e rode scripts\smoke_test.py'" -ForegroundColor White
+Info "first message to paste into the local session:"
+Write-Host "    Read STATUS.md and docs/DIRECAO_ARTE.md, then run scripts/smoke_test.py"
