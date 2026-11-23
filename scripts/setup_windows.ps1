@@ -67,24 +67,23 @@ foreach ($r in $repos) {
     Ok "$($r.dir) ready"
 }
 
-# --- 4. Run EL4CTEO official installer ---
-$installer = Join-Path $skillsDir "blender-skills\install\install.ps1"
-if (Test-Path $installer) {
-    Info "running EL4CTEO installer (symlinks for 28 sub-skills)"
-    $ok = $false
-    try {
-        & $installer --agent claude --scope user
-        $ok = $true
-    } catch {
-        Warn "install.ps1 failed. Likely needs admin to create symlinks on Windows."
-        Warn "Options:"
-        Warn "  A) Reopen PowerShell as Administrator and rerun this script"
-        Warn "  B) Enable Developer Mode (Settings - Privacy and security - For developers)"
-        Warn "  C) Copy instead of symlink: & '$installer' --agent claude --scope user --copy"
+# --- 4. Expose the 28 blender-* sub-skills at top level ---
+# Avoids EL4CTEO install.ps1 (bash-style flags fail in PowerShell).
+# Copies each sub-skill folder into ~/.claude/skills/ so Claude Code finds them.
+$subSrc = Join-Path $skillsDir "blender-skills\skills"
+if (Test-Path $subSrc) {
+    Info "exposing 28 blender-* sub-skills at top level"
+    $copied = 0
+    Get-ChildItem $subSrc -Directory | ForEach-Object {
+        $target = Join-Path $skillsDir $_.Name
+        if (-not (Test-Path $target)) {
+            Copy-Item -Recurse $_.FullName $target
+            $copied++
+        }
     }
-    if ($ok) { Ok "28 blender-* sub-skills linked under $skillsDir" }
+    Ok "copied $copied sub-skills (already present ones skipped)"
 } else {
-    Warn "EL4CTEO installer not found at $installer"
+    Warn "sub-skills folder not found at $subSrc"
 }
 
 # --- 5. Blender MCP (optional) ---
